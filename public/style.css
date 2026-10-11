@@ -319,7 +319,13 @@ html {
 .app-icon {
   display: block;
   margin: 0 auto 1.25rem;
-  border-radius: 16px;
+}
+/* The icons are ivory tiles: a hairline keeps them off the white and the cards. */
+.app-icon,
+.app-card-text img,
+.app-row img {
+  border-radius: 22.5%;
+  box-shadow: 0 0 0 1px var(--line);
 }
 .works-with {
   display: flex;
@@ -428,7 +434,6 @@ html {
 .app-card-text img,
 .app-row img {
   flex: none;
-  border-radius: 9px;
 }
 .app-card h3,
 .app-row h3 {
@@ -755,12 +760,7 @@ html {
   .hero {
     padding-top: 3rem;
   }
-  .app-icon {
-  display: block;
-  margin: 0 auto 1.25rem;
-  border-radius: 16px;
-}
-.works-with {
+  .works-with {
     gap: 0.4rem 1.1rem;
   }
   .landing .features {
