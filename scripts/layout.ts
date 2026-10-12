@@ -60,7 +60,7 @@ export function siteNav(current?: string): string {
     ? `<a class="account" href="${app.url}" data-signed-in="Open Otter ${app.name}">Sign in</a>`
     : `<a class="account" href="${ACCOUNTS}/sign-in" data-signed-in="Account" data-signed-in-href="${ACCOUNTS}/account">Sign in</a>`;
   return `<nav class="nav">
-          <a class="logo" href="/"><img src="/otterware.svg" alt="Otterware" width="26" height="26" /></a>
+          <a class="logo" href="/"><img src="/otterware.svg" alt="Otterware" width="22" height="22" /></a>
           <div class="apps">
           ${apps}
           </div>
