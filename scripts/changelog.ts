@@ -127,7 +127,8 @@ ${markdown.parse(e.body.replace(/^## /gm, "### "))}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Changelog · Otter Mail</title>
     <meta name="description" content="What's new in Otter Mail, release by release." />
-    <link rel="icon" href="/favicon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/style.css" />
     <script src="/site.js" defer></script>
   </head>
