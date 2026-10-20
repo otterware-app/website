@@ -98,7 +98,7 @@
           <h2>The Otter account (optional)</h2>
           <p>
             An Otter account (optional in the Mac app, required for the web app) brings your
-            mailboxes, preferences and projects to every device you use and delivers new mail the
+            mailboxes, preferences and agent chats to every device you use and delivers new mail the
             moment it arrives. For this, Otter Mail's server at
             <code>relay.mail.otterware.app</code> (run on Cloudflare) stores:
           </p>
@@ -119,13 +119,11 @@
               is stored encrypted;
             </li>
             <li>
-              your projects: their names, status, notes and links, and which conversations belong to
-              them (a mailbox's address and Gmail's thread ID; never the conversation's subject or
-              content);
-            </li>
-            <li>
-              if you give an agent access to your projects, the token's name, when it was last used,
-              and a hash of the token (not the token itself).
+              your agent chats, whichever agent ran them (OpenRouter, Claude, Codex, Hermes or
+              OpenClaw): what you asked, what the agent answered and the steps it took, including
+              the mail it read or wrote for you (long results are shortened); the conversations,
+              drafts, pages and files each chat opened; which agent it used; and, for a chat run by
+              Claude or Codex, the name of the Mac it ran on. Deleting a chat deletes all of this.
             </li>
           </ul>
           <p>
@@ -133,8 +131,9 @@
             to this server whenever one of your mailboxes changes. The notification contains only
             the address and a change number, never the content of your mail; the server passes it on
             to your devices, which then fetch the change from Gmail themselves. Notifications are
-            not stored. This notification path does not send mail content to our server. The
-            optional OpenRouter agent has a separate data path, described below.
+            not stored. This notification path does not send mail content to our server. Your
+            agent chats (above) and the optional OpenRouter agent (below) are the only ways mail
+            content reaches it.
           </p>
 
           <h2>The OpenRouter agent (optional)</h2>
