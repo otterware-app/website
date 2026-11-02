@@ -21,17 +21,18 @@
         <article class="doc">
           <header>
             <h1>Privacy Policy</h1>
-            <p>Last updated: October 4, 2026</p>
+            <p>Last updated: November 2, 2026</p>
           </header>
 
           <p>
-            Otter Mail is an email app for macOS, iPhone and the web, made by Christophe Kafrouni under the
-            Otterware name. This policy explains what data Otter Mail accesses, where it goes, and
-            what control you have. Otter Mail fetches and caches mail on your device. If you choose
-            to use the OpenRouter agent, your chat and mail returned by its tools are processed and
-            stored on our server and sent to OpenRouter and the selected model provider (see below).
-            If you sign in to an Otter account, our server also learns which Gmail addresses you
-            use and when they change. In the web app, it handles your Gmail sign-in.
+            Otter Mail is an email app for Gmail, Outlook and IMAP mailboxes, on macOS, Linux,
+            iPhone and the web, made by Christophe Kafrouni under the Otterware name. This policy
+            explains what data Otter Mail accesses, where it goes, and what control you have. Otter
+            Mail fetches and caches mail on your device. If you choose to use the OpenRouter agent,
+            your chat and mail returned by its tools are processed and stored on our server and sent
+            to OpenRouter and the selected model provider (see below). If you sign in to an Otter
+            account, our server also learns which mailbox addresses you use and when they change. In
+            the web app, it handles your Google and Microsoft sign-ins.
           </p>
 
           <h2>Data Otter Mail accesses from your Google Account</h2>
@@ -67,26 +68,69 @@
           </ul>
           <p>
             Otter Mail for iOS asks only for Gmail, Gmail settings and your basic profile: it has no
-            calendar or contacts features.
+            calendar or contacts features. If you turn on background notifications for a Gmail
+            mailbox on iPhone, you give our server a separate, narrower grant
+            (<code>gmail.metadata</code>); see "Background notifications on iPhone" below.
+          </p>
+
+          <h2>Data Otter Mail accesses from your Microsoft account</h2>
+          <p>
+            When you add an Outlook mailbox (Microsoft 365, outlook.com, hotmail.com or live.com),
+            you choose to give Otter Mail access, through Microsoft Graph, to:
+          </p>
+          <ul>
+            <li>
+              <strong>Mail</strong> (<code>Mail.ReadWrite</code>, <code>Mail.Send</code>): to
+              read, search, send, move, categorize and delete your mail, and to manage drafts and
+              folders, as you do in the app.
+            </li>
+            <li>
+              <strong>Mailbox settings</strong> (<code>MailboxSettings.ReadWrite</code>): to read
+              and manage your Outlook categories.
+            </li>
+            <li>
+              <strong>Calendar</strong> (<code>Calendars.ReadWrite</code>): to answer calendar
+              invitations you receive by email and, if you use an agent, to list, read, create, edit
+              and delete events when you ask. Write tools request approval in the default supervised
+              mode.
+            </li>
+            <li>
+              <strong>Basic profile</strong> (<code>User.Read</code>) and
+              <code>offline_access</code>: to know which account you added, and to stay signed in.
+            </li>
+          </ul>
+
+          <h2>IMAP mailboxes</h2>
+          <p>
+            For an IMAP mailbox, Otter Mail connects to the mail server you name with the address
+            and password you enter. The password is kept on that device (in the system's secure
+            storage) and is not synced to your other devices. In the web app, a browser can't open a
+            mail connection itself, so our server forwards the connection's bytes to your mail
+            server; the encryption is negotiated in your browser, so our server carries only
+            encrypted data and logs only the host, port and amount of data.
           </p>
 
           <h2>How the data is used and stored</h2>
           <ul>
             <li>
-              Otterware uses data from Google only to provide Otter Mail's features to you. We do
-              not sell it, use it for advertising, or use it to train artificial intelligence models.
+              Otterware uses data from Google, Microsoft and your mail servers only to provide Otter
+              Mail's features to you. We do not sell it, use it for advertising, or use it to train
+              artificial intelligence models.
               Optional agents process the content you provide and the content returned by their
               tools, as described below.
             </li>
             <li>
               Your mail, labels and contact details are stored in a local database on your device,
-              so the app is fast. On a Mac it stays in the Otter Mail folder in your home directory
-              (<code>~/.otter-mail</code>); in the web app, in your browser's storage for this site.
+              so the app is fast. On a Mac or Linux computer it stays in the Otter Mail folder in your
+              home directory (<code>~/.otter-mail</code>); in the web app, in your browser's storage
+              for this site.
               It stays until you remove the account or delete the app's data.
             </li>
             <li>
-              In the Mac app, Google sign-in tokens are stored on your Mac, encrypted with a key
-              kept in your macOS Keychain. In the web app, see "The web app" above.
+              In the desktop app, Google and Microsoft sign-in tokens and IMAP passwords are stored on
+              your computer, encrypted with a key kept in your macOS Keychain or, on Linux, your
+              desktop's keyring (or, without one, sealed with an app key). In the web app, see "The
+              web app" below.
             </li>
             <li>
               Translation of foreign-language mail (Mac app) uses Apple's on-device translator. The
@@ -103,10 +147,14 @@
             <code>relay.mail.otterware.app</code> (run on Cloudflare) stores:
           </p>
           <ul>
-            <li>your Google account's ID, address, name and picture, to know who is signed in;</li>
             <li>
-              the address, name and picture of each Gmail account you use in Otter Mail, and the
-              display name and color you gave it;
+              the ID, address, name and picture of the account you sign in to Otter with (Google,
+              Microsoft or an email and password), to know who is signed in;
+            </li>
+            <li>
+              the address, name and picture of each mailbox you use in Otter Mail, its provider
+              (and, for IMAP, its server settings, never its password unless you turn on iPhone
+              background notifications for it), and the display name and color you gave it;
             </li>
             <li>
               for each signed-in device, its session (a random sign-in token), when it was last
@@ -127,13 +175,45 @@
             </li>
           </ul>
           <p>
-            To deliver new mail instantly, Gmail sends a notification through Google Cloud Pub/Sub
-            to this server whenever one of your mailboxes changes. The notification contains only
-            the address and a change number, never the content of your mail; the server passes it on
-            to your devices, which then fetch the change from Gmail themselves. Notifications are
-            not stored. This notification path does not send mail content to our server. Your
-            agent chats (above) and the optional OpenRouter agent (below) are the only ways mail
-            content reaches it.
+            To deliver new mail instantly, Gmail (through Google Cloud Pub/Sub) and Outlook (through
+            a Microsoft Graph subscription) notify this server whenever one of your mailboxes
+            changes. The notification contains only the address and identifiers of what changed,
+            never the content of your mail; the server passes it on to your devices, which then
+            fetch the change from Gmail or Outlook themselves. Notifications are not stored. This
+            notification path does not send mail content to our server. Your agent chats (above)
+            and the optional OpenRouter agent (below) are the only ways mail content reaches it.
+          </p>
+
+          <h2>Background notifications on iPhone (optional)</h2>
+          <p>
+            To alert your iPhone to new mail while Otter Mail is closed, you can connect a mailbox
+            to background notifications (Settings → Mailboxes → the mailbox). Our server then
+            watches that mailbox for new mail and checks that a message is new and unread before
+            alerting your devices. For this it keeps, encrypted:
+          </p>
+          <ul>
+            <li>
+              for Gmail, a separate grant limited to message metadata
+              (<code>gmail.metadata</code>); the server asks only for message IDs, labels and
+              history, never headers or content;
+            </li>
+            <li>
+              for Outlook, a separate grant with <code>Mail.ReadBasic</code>, <code>User.Read</code>
+              and <code>offline_access</code>, apart from the app's own sign-in;
+            </li>
+            <li>
+              for IMAP, the mailbox's password, which you agree to store with us when you connect
+              it. It allows reading the mailbox, but the server reads only message numbers, flags,
+              dates and the Message-ID header, kept only as a one-way hash to avoid repeat alerts.
+            </li>
+          </ul>
+          <p>
+            The alert sent through Apple's push service carries only a generic "New mail" text and
+            identifiers, never the sender, subject or content. Your iPhone then fetches the message
+            directly from Gmail, Outlook or your mail server to show its sender, subject and a
+            short preview. Our server keeps no copy of your mail. Turning background notifications
+            off, removing the mailbox or deleting your Otter account deletes the grant or password
+            and stops the watch.
           </p>
 
           <h2>The OpenRouter agent (optional)</h2>
@@ -166,21 +246,25 @@
 
           <h2>The web app</h2>
           <p>
-            In a browser, your mail is fetched from Gmail by your browser and cached in the
-            browser's own storage for this site, which you can clear at any time (it is also removed
-            when you delete your browsing data). A browser can't keep a lasting Google sign-in on
-            its own, so when you add a Gmail account in the web app, our server completes Google's
-            sign-in and refreshes it when needed: your Google tokens pass through our server, but it
-            does not store them. The long-lived token is encrypted by our server and kept only in
-            your browser. In the Mac app, Google tokens never reach our server.
+            In a browser, your mail is fetched from Gmail, Outlook or your mail server by your
+            browser and cached in the browser's own storage for this site, which you can clear at
+            any time (it is also removed when you delete your browsing data). A browser can't keep a
+            lasting Google or Microsoft sign-in on its own, so when you add a Gmail or Outlook
+            mailbox in the web app, our server completes the sign-in and refreshes it when needed:
+            your tokens pass through our server, but it does not store them. The long-lived token is
+            encrypted by our server and kept only in your browser. In the desktop app, Google and
+            Microsoft tokens never reach our server. IMAP connections from the web app pass through
+            our server encrypted, as described under "IMAP mailboxes" above.
           </p>
 
           <h2>When data leaves your device</h2>
           <p>Otter Mail connects directly from your device to:</p>
           <ul>
             <li>
-              <strong>Google</strong> (Gmail, People, Calendar and sign-in services), to do what you
-              ask in the app.
+              <strong>Google</strong> (Gmail, People, Calendar and sign-in services),
+              <strong>Microsoft</strong> (Microsoft Graph and sign-in services) and
+              <strong>your IMAP mail servers</strong>, for the mailboxes you add, to do what you ask
+              in the app.
             </li>
             <li>
               <strong>Image and icon services</strong>, to show sender pictures: Gravatar receives a
@@ -195,7 +279,7 @@
             </li>
             <li>
               <strong>Your agent, only if you set one up.</strong> The optional agent runs through a
-              provider you install or configure and sign in to yourself (Claude Code, Codex or Hermes). When you
+              provider you install or configure and sign in to yourself (Claude Code, Codex, Hermes or OpenClaw). When you
               ask it something, the messages, mail content and calendar details it needs are sent to that provider
               under your own account with them, and are subject to that provider's privacy policy.
               Nothing is sent to an agent unless you use it.
@@ -225,16 +309,20 @@
           <ul>
             <li>
               Removing a mailbox in Otter Mail (Settings → Mailboxes) deletes its local copy of your
-              mail and its sign-in from your device. Nothing is deleted from Gmail.
+              mail and its sign-in from your device. Nothing is deleted from your mailbox itself.
             </li>
             <li>
               You can revoke Otter Mail's access at any time at
-              <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a
-              >.
+              <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>
+              (Google), or
+              <a href="https://account.live.com/consent/Manage">account.live.com/consent/Manage</a>
+              (personal Microsoft accounts) and
+              <a href="https://myapplications.microsoft.com/">myapplications.microsoft.com</a>
+              (work or school accounts).
             </li>
             <li>
-              Deleting the <code>~/.otter-mail</code> folder (Mac), or this site's data in your
-              browser (web), removes all of the app's data on that device.
+              Deleting the <code>~/.otter-mail</code> folder (Mac and Linux), or this site's data in
+              your browser (web), removes all of the app's data on that device.
             </li>
             <li>
               Signing out of your Otter account ends that device's session. Delete an agent chat
