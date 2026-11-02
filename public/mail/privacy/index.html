@@ -257,6 +257,38 @@
             our server encrypted, as described under "IMAP mailboxes" above.
           </p>
 
+          <h2>Error reports</h2>
+          <p>
+            When something fails in Otter Mail (a crash, a sign-in or sync that doesn't work), the
+            app sends an error report to <a href="https://sentry.io/">Sentry</a>, a service that
+            collects them for us, so we can find and fix the problem. Reports are stored in Sentry's
+            EU region and kept for up to 90 days.
+          </p>
+          <p>
+            A report says what broke and where: the error, where in Otter Mail's code it happened,
+            the app version, the operating system and browser, and the app's own record of the steps
+            just before it (such as "sync started"). It is built to leave you and your mail out:
+          </p>
+          <ul>
+            <li>
+              It never contains the content of your mail or calendar, your contacts, passwords or
+              sign-in tokens, and it never includes screenshots or a recording of your screen.
+            </li>
+            <li>
+              Before a report leaves your device, email addresses, tokens, web addresses' query
+              strings and folder names that could identify you are removed from it.
+            </li>
+            <li>
+              It is not linked to your name, email address or IP address. The only identifier is a
+              random report ID for that device, which Otter Mail includes when you send feedback,
+              so we can match your feedback to its errors.
+            </li>
+          </ul>
+          <p>
+            You can turn error reports off on each device in Settings → General → Send error
+            reports. Otter Mail's server also reports its own errors to Sentry, the same way.
+          </p>
+
           <h2>When data leaves your device</h2>
           <p>Otter Mail connects directly from your device to:</p>
           <ul>
@@ -288,6 +320,9 @@
               <strong>Otter Mail's server</strong>, if you sign in to an Otter account, and
               <strong>OpenRouter and the selected model provider</strong>, when you use the optional
               OpenRouter agent (see above).
+            </li>
+            <li>
+              <strong>Sentry</strong>, for error reports, unless you turn them off (see above).
             </li>
             <li>
               <strong>GitHub</strong>, to check for app updates. This shares only your IP address
@@ -323,6 +358,9 @@
             <li>
               Deleting the <code>~/.otter-mail</code> folder (Mac and Linux), or this site's data in
               your browser (web), removes all of the app's data on that device.
+            </li>
+            <li>
+              Settings → General → Send error reports turns error reports off on that device.
             </li>
             <li>
               Signing out of your Otter account ends that device's session. Delete an agent chat
