@@ -7,7 +7,7 @@ const script = NodeFS.readFileSync(new URL("../public/site.js", import.meta.url)
 
 /** site.js on a page whose account link is `link`, with Accounts answering `signedIn`. */
 async function run(hostname: string, signedIn: boolean, data: Record<string, string>) {
-  const link = { textContent: "Sign in", href: "https://mail.otterware.app/", dataset: data };
+  const link = { textContent: "Sign in", href: "https://otter.otterware.app/", dataset: data };
   const calls: unknown[][] = [];
   const fetch = async (...args: unknown[]) => {
     calls.push(args);
@@ -33,7 +33,7 @@ test("renames the link once Accounts says this browser is signed in", async () =
 
   const mail = await run("otterware.app", true, { signedIn: "Open Otter Mail" });
   assert.equal(mail.link.textContent, "Open Otter Mail");
-  assert.equal(mail.link.href, "https://mail.otterware.app/");
+  assert.equal(mail.link.href, "https://otter.otterware.app/");
 });
 
 test("keeps Sign in when signed out, and never asks production from local development", async () => {
