@@ -1,4 +1,4 @@
-# Copies Otter Mail's changelog from otterware-app/otter-mail into changelog/mail/: the notes,
+# Copies Otter Mail's changelog from otterware-app/otter into changelog/mail/: the notes,
 # their images, and `released`, the version Mail last released (notes written ahead of a
 # release wait for it). A commit to main redeploys the site, so a note shows on
 # otterware.app/mail/changelog/ within the hour of its release.
@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v5
       - name: Copy the notes
         run: |
-          git clone --depth 1 --filter=blob:none --no-checkout https://github.com/otterware-app/otter-mail.git "$RUNNER_TEMP/otter-mail"
+          git clone --depth 1 --filter=blob:none --no-checkout https://github.com/otterware-app/otter.git "$RUNNER_TEMP/otter-mail"
           git -C "$RUNNER_TEMP/otter-mail" sparse-checkout set --no-cone /changelog/ /apps/desktop/package.json
           git -C "$RUNNER_TEMP/otter-mail" checkout
           rm -rf changelog/mail

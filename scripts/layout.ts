@@ -18,13 +18,13 @@ const APPS: Record<string, App> = {
   mail: {
     name: "Mail",
     page: "/mail/",
-    url: "https://mail.otterware.app/",
+    url: "https://otter.otterware.app/",
     links: [
       ["Changelog", "/mail/changelog/"],
       ["Privacy", "/mail/privacy/"],
       ["Terms", "/mail/terms/"],
     ],
-    action: ["Download", "https://github.com/otterware-app/otter-mail/releases/latest"],
+    action: ["Download", "https://github.com/otterware-app/otter/releases/latest"],
   },
   drive: {
     name: "Drive",
