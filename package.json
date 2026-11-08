@@ -1,7 +1,7 @@
 {
   "name": "otterware-site",
   "private": true,
-  "description": "otterware.app: Otterware's apps, each with its page, and Otter Mail's changelog.",
+  "description": "otterware.app: Otter and its modules, each with its page, and Otter's changelog.",
   "type": "module",
   "scripts": {
     "dev": "node --watch scripts/dev.ts",

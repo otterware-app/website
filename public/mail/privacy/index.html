@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Privacy Policy · Otter Mail</title>
+    <title>Privacy Policy · Otter</title>
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/style.css" />
@@ -25,18 +25,20 @@
           </header>
 
           <p>
-            Otter Mail is an email app for Gmail, Outlook and IMAP mailboxes, on macOS, Linux,
-            iPhone and the web, made by Christophe Kafrouni under the Otterware name. This policy
-            explains what data Otter Mail accesses, where it goes, and what control you have. Otter
-            Mail fetches and caches mail on your device. If you choose to use the OpenRouter agent,
+            Otter is an app for your mail, calendars, files and agents, for Gmail, Outlook and IMAP
+            mailboxes, on macOS, Linux, iPhone and the web, made by Christophe Kafrouni under the
+            Otterware name. On iPhone it is called Otter, and it was called Otter everywhere
+            before November 2026; this policy covers it under every name. This policy explains what
+            data Otter accesses, where it goes, and what control you have. Otter
+             fetches and caches mail on your device. If you choose to use the OpenRouter agent,
             your chat and mail returned by its tools are processed and stored on our server and sent
             to OpenRouter and the selected model provider (see below). If you sign in to an Otter
             account, our server also learns which mailbox addresses you use and when they change. In
             the web app, it handles your Google and Microsoft sign-ins.
           </p>
 
-          <h2>Data Otter Mail accesses from your Google Account</h2>
-          <p>When you sign in with Google, you choose to give Otter Mail access to:</p>
+          <h2>Data Otter accesses from your Google Account</h2>
+          <p>When you sign in with Google, you choose to give Otter access to:</p>
           <ul>
             <li>
               <strong>Gmail</strong> (<code>https://mail.google.com/</code>): to read, search, send,
@@ -45,8 +47,8 @@
             </li>
             <li>
               <strong>Gmail settings</strong> (<code>gmail.settings.basic</code>): to save the
-              signature you edit in Otter Mail to your Gmail account, so it's the same in Gmail.
-              Otter Mail changes no other Gmail setting.
+              signature you edit in Otter to your Gmail account, so it's the same in Gmail.
+              Otter changes no other Gmail setting.
             </li>
             <li>
               <strong>Contacts</strong> (<code>contacts.readonly</code>,
@@ -67,16 +69,16 @@
             </li>
           </ul>
           <p>
-            Otter Mail for iOS asks only for Gmail, Gmail settings and your basic profile: it has no
+            Otter Mail for iPhone asks only for Gmail, Gmail settings and your basic profile: it has no
             calendar or contacts features. If you turn on background notifications for a Gmail
             mailbox on iPhone, you give our server a separate, narrower grant
             (<code>gmail.metadata</code>); see "Background notifications on iPhone" below.
           </p>
 
-          <h2>Data Otter Mail accesses from your Microsoft account</h2>
+          <h2>Data Otter accesses from your Microsoft account</h2>
           <p>
             When you add an Outlook mailbox (Microsoft 365, outlook.com, hotmail.com or live.com),
-            you choose to give Otter Mail access, through Microsoft Graph, to:
+            you choose to give Otter access, through Microsoft Graph, to:
           </p>
           <ul>
             <li>
@@ -102,7 +104,7 @@
 
           <h2>IMAP mailboxes</h2>
           <p>
-            For an IMAP mailbox, Otter Mail connects to the mail server you name with the address
+            For an IMAP mailbox, Otter connects to the mail server you name with the address
             and password you enter. The password is kept on that device (in the system's secure
             storage) and is not synced to your other devices. In the web app, a browser can't open a
             mail connection itself, so our server forwards the connection's bytes to your mail
@@ -113,8 +115,8 @@
           <h2>How the data is used and stored</h2>
           <ul>
             <li>
-              Otterware uses data from Google, Microsoft and your mail servers only to provide Otter
-              Mail's features to you. We do not sell it, use it for advertising, or use it to train
+              Otterware uses data from Google, Microsoft and your mail servers only to provide Otter's
+              features to you. We do not sell it, use it for advertising, or use it to train
               artificial intelligence models.
               Optional agents process the content you provide and the content returned by their
               tools, as described below.
@@ -122,8 +124,8 @@
             <li>
               Your mail, labels and contact details are stored in a local database on your device,
               so the app is fast. On a Mac or Linux computer it stays in the Otter folder in your
-              home directory (<code>~/.otter</code>, or <code>~/.otter-mail</code> where Otter Mail was
-              installed before it was renamed Otter); in the web app, in your browser's storage
+              home directory (<code>~/.otter</code>, or <code>~/.otter-mail</code> where Otter was
+              installed before its rename); in the web app, in your browser's storage
               for this site.
               It stays until you remove the account or delete the app's data.
             </li>
@@ -154,7 +156,7 @@
               Microsoft or an email and password), to know who is signed in;
             </li>
             <li>
-              the address, name and picture of each mailbox you use in Otter Mail, its provider
+              the address, name and picture of each mailbox you use in Otter, its provider
               (and, for IMAP, its server settings, never its password unless you turn on iPhone
               background notifications for it), and the display name and color you gave it;
             </li>
@@ -188,7 +190,7 @@
 
           <h2>Background notifications on iPhone (optional)</h2>
           <p>
-            To alert your iPhone to new mail while Otter Mail is closed, you can connect a mailbox
+            To alert your iPhone to new mail while Otter is closed, you can connect a mailbox
             to background notifications (Settings → Mailboxes → the mailbox). Our server then
             watches that mailbox for new mail and checks that a message is new and unread before
             alerting your devices. For this it keeps, encrypted:
@@ -221,7 +223,7 @@
           <h2>The OpenRouter agent (optional)</h2>
           <p>
             You connect the agent with your own OpenRouter API key and use your own OpenRouter
-            account for billing. We store the key encrypted on Cloudflare, where Otter Mail's server
+            account for billing. We store the key encrypted on Cloudflare, where Otter's server
             can decrypt it to make your requests. We do not send the key back to your devices.
           </p>
           <p>
@@ -261,13 +263,13 @@
 
           <h2>Error reports</h2>
           <p>
-            When something fails in Otter Mail (a crash, a sign-in or sync that doesn't work), the
+            When something fails in Otter (a crash, a sign-in or sync that doesn't work), the
             app sends an error report to <a href="https://sentry.io/">Sentry</a>, a service that
             collects them for us, so we can find and fix the problem. Reports are stored in Sentry's
             EU region and kept for up to 90 days.
           </p>
           <p>
-            A report says what broke and where: the error, where in Otter Mail's code it happened,
+            A report says what broke and where: the error, where in Otter's code it happened,
             the app version, the operating system and browser, and the app's own record of the steps
             just before it (such as "sync started"). It is built to leave you and your mail out:
           </p>
@@ -282,17 +284,17 @@
             </li>
             <li>
               It is not linked to your name, email address or IP address. The only identifier is a
-              random report ID for that device, which Otter Mail includes when you send feedback,
+              random report ID for that device, which Otter includes when you send feedback,
               so we can match your feedback to its errors.
             </li>
           </ul>
           <p>
             You can turn error reports off on each device in Settings → General → Send error
-            reports. Otter Mail's server also reports its own errors to Sentry, the same way.
+            reports. Otter's server also reports its own errors to Sentry, the same way.
           </p>
 
           <h2>When data leaves your device</h2>
-          <p>Otter Mail connects directly from your device to:</p>
+          <p>Otter connects directly from your device to:</p>
           <ul>
             <li>
               <strong>Google</strong> (Gmail, People, Calendar and sign-in services),
@@ -319,7 +321,7 @@
               Nothing is sent to an agent unless you use it.
             </li>
             <li>
-              <strong>Otter Mail's server</strong>, if you sign in to an Otter account, and
+              <strong>Otter's server</strong>, if you sign in to an Otter account, and
               <strong>OpenRouter and the selected model provider</strong>, when you use the optional
               OpenRouter agent (see above).
             </li>
@@ -331,11 +333,11 @@
               and the app version, as any download does.
             </li>
           </ul>
-          <p>Otter Mail shares Google data only for the features and services described in this policy.</p>
+          <p>Otter shares Google data only for the features and services described in this policy.</p>
 
           <h2>Google API Services User Data Policy</h2>
           <p>
-            Otter Mail's use and transfer to any other app of information received from Google APIs
+            Otter's use and transfer to any other app of information received from Google APIs
             will adhere to the
             <a href="https://developers.google.com/terms/api-services-user-data-policy"
               >Google API Services User Data Policy</a
@@ -345,11 +347,11 @@
           <h2>Your control</h2>
           <ul>
             <li>
-              Removing a mailbox in Otter Mail (Settings → Mailboxes) deletes its local copy of your
+              Removing a mailbox in Otter (Settings → Mailboxes) deletes its local copy of your
               mail and its sign-in from your device. Nothing is deleted from your mailbox itself.
             </li>
             <li>
-              You can revoke Otter Mail's access at any time at
+              You can revoke Otter's access at any time at
               <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>
               (Google), or
               <a href="https://account.live.com/consent/Manage">account.live.com/consent/Manage</a>
@@ -373,7 +375,7 @@
           </ul>
 
           <h2>Children</h2>
-          <p>Otter Mail is not directed at children under 13.</p>
+          <p>Otter is not directed at children under 13.</p>
 
           <h2>Changes</h2>
           <p>

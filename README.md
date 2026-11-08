@@ -1,9 +1,9 @@
 # otterware.app
 
-The Otterware site: the suite's page (`/`), a page per app (`/mail/`, `/drive/`), Otter Mail's
-changelog, privacy policy and terms (`/mail/changelog/`, `/mail/privacy/`, `/mail/terms/`). The
-apps themselves live on their own domains (mail.otterware.app, drive.otterware.app); the Otter
-account at accounts.otterware.app.
+Otter's site: Otter's page (`/`), a page per module (`/mail/`, `/calendar/`, `/drive/`,
+`/tasks/`, `/agents/`), and Otter's changelog, privacy policy and terms (`/mail/changelog/`,
+`/mail/privacy/`, `/mail/terms/`). Otter itself is at otter.otterware.app, Otter Drive at
+drive.otterware.app, the Otter account at accounts.otterware.app.
 
 Plain HTML and CSS in `public/`, assembled in `dist/` by `scripts/build.ts` and served by a
 Cloudflare Worker. Workers Builds deploys it on every push to `main`.

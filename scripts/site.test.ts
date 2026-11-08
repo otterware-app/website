@@ -31,8 +31,8 @@ test("renames the link once Accounts says this browser is signed in", async () =
   assert.equal(account.link.textContent, "Account");
   assert.equal(account.link.href, "https://accounts.otterware.app/otter/account");
 
-  const mail = await run("otterware.app", true, { signedIn: "Open Otter Mail" });
-  assert.equal(mail.link.textContent, "Open Otter Mail");
+  const mail = await run("otterware.app", true, { signedIn: "Open Otter" });
+  assert.equal(mail.link.textContent, "Open Otter");
   assert.equal(mail.link.href, "https://otter.otterware.app/");
 });
 

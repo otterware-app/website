@@ -1,5 +1,5 @@
 // Assembles the site in dist/: the pages and files in public/, each page with the site's
-// header and footer, and Otter Mail's changelog. Wrangler runs it before deploying
+// header and footer, and Otter's changelog. Wrangler runs it before deploying
 // (wrangler.jsonc's build) and before `wrangler dev`.
 
 import * as NodeFS from "node:fs";
