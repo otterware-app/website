@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Otter Mail · Email, calm and fast</title>
+    <title>Mail · Otter</title>
     <meta
       name="description"
-      content="Otter Mail is a calm, fast mail client for Gmail, Outlook and IMAP, with an agent that does the busywork. On your Mac, on Linux, in your browser and on iOS. Your mail stays on your device."
+      content="Mail, Otter's deepest module: Gmail, Outlook and IMAP from a local cache, made for the keyboard, with your agents a shortcut away. On the Mac, Linux, the web and the iPhone. Your mail stays on your device."
     />
-    <meta property="og:title" content="Otter Mail" />
+    <meta property="og:title" content="Mail · Otter" />
     <meta property="og:description" content="Email, calm and fast." />
     <meta property="og:image" content="https://otterware.app/og.png" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/style.css" />
+    <script src="/office.js" defer></script>
     <script src="/site.js" defer></script>
   </head>
   <body class="landing" data-app="mail">
@@ -29,15 +30,14 @@
         <div class="wrap">
           <div class="hero-copy">
             <img class="app-icon" src="/apps/mail.svg" width="72" height="72" alt="" />
-            <a
-              class="chip"
-              href="mailto:chris.kafrouni@gmail.com?subject=Otter%20Mail%20for%20iOS%20(TestFlight)&body=Hi%2C%20please%20add%20me%20to%20the%20Otter%20Mail%20iOS%20TestFlight.%0A%0AThe%20email%20of%20my%20Apple%20ID%3A%20"
-              >Otter Mail for iOS is on TestFlight <span aria-hidden="true">&rarr;</span></a
+            <a class="chip part-of" href="/"
+              ><img src="/apps/otter.svg" width="16" height="16" alt="" />A module of Otter
+              <span aria-hidden="true">&rarr;</span></a
             >
             <h1>
-              <b>Email, calm and&nbsp;fast.</b> A quiet mail client for Gmail, Outlook and IMAP,
-              with an agent that does the busywork. On your Mac, on Linux, in your browser and on
-              iOS. Your mail stays on your device.
+              <b>Email, calm and&nbsp;fast.</b> Gmail, Outlook and IMAP from a local cache, made for
+              the keyboard, with your agents a shortcut away. On the Mac, Linux, the web and the
+              iPhone. Your mail stays on your device.
             </h1>
             <p class="cta">
               <a class="btn" href="https://github.com/otterware-app/otter/releases/latest"
@@ -49,12 +49,20 @@
             </p>
             <p class="works-with">
               <span>Gmail</span><span>Outlook</span><span>IMAP</span><span>Claude Code</span
-              ><span>Codex</span><span>OpenRouter</span><span>Hermes</span><span>OpenClaw</span
-              ><span>Chrome extensions</span><span>1Password</span>
+              ><span>Codex</span><span>OpenClaw</span><span>Hermes</span><span>OpenRouter</span
+              ><span>Todoist</span><span>Otter Drive</span><span>1Password</span>
             </p>
           </div>
         </div>
       </header>
+
+      <figure class="office">
+        <canvas
+          role="img"
+          aria-label="Mail as a small office: mail comes in through the wall from Gmail and IMAP, and the receptionist sorts it into the shredder, the label pigeonholes, or the tray for you. A courier walks it to your desk, where you file it or pass it to your agent, whose reply you send. Your Mac, your iPhone and the meeting room screen show the same inbox."
+        ></canvas>
+        <button type="button" aria-pressed="false">Pause</button>
+      </figure>
 
       <div class="wrap">
         <figure class="hero-shot">
@@ -62,11 +70,11 @@
             src="/mail/tour/agent.webp"
             width="2391"
             height="1497"
-            alt="Otter Mail with a client's message open and the chat window over it: asked to file the Northwind mail, archive the week's newsletters and draft a reply, Claude did all three and lists every conversation it updated and the draft it created."
+            alt="Otter's Mail with a client's message open and the chat window over it: asked to file the Northwind mail, archive the week's newsletters and draft a reply, Claude did all three and lists every conversation it updated and the draft it created."
           />
           <figcaption>
-            Ask in your own words, over the mail you're reading. The agent files, archives and
-            drafts with Otter Mail's own tools, then lists everything it changed.
+            Ask in your own words, over the mail you're reading. Your agent files, archives and
+            drafts with Otter's own tools, then lists everything it changed.
           </figcaption>
         </figure>
 
@@ -113,17 +121,17 @@
             </p>
           </div>
           <div>
-            <h2>An agent, if you want one</h2>
+            <h2>Your agents, over your mail</h2>
             <p>
-              Claude Code, Codex, OpenRouter, Hermes or OpenClaw, on your own account, in a small
-              window over your mail. Off until you set it up.
+              Claude Code, Codex, OpenClaw, Hermes or OpenRouter, on your own account, in a small
+              window over the mail you're reading. Off until you set one up.
             </p>
           </div>
           <div>
             <h2>Wherever you are</h2>
             <p>
-              A Mac and Linux app that updates itself, the same app in any current browser, and a
-              native iOS app. Sign in once and your mailboxes and settings are there.
+              A Mac and Linux app that updates itself, the same app in any current browser, and
+              Otter Mail for iPhone. Sign in once and your mailboxes and settings are there.
             </p>
           </div>
         </section>
@@ -153,7 +161,7 @@
               width="2391"
               height="1497"
               loading="lazy"
-              alt="Otter Mail with a conversation open and a web page in the browser panel beside it, with its own tabs and address bar."
+              alt="Otter with a conversation open and a web page in the browser panel beside it, with its own tabs and address bar."
             />
             <figcaption>
               On the Mac and Linux, links open in a tab beside your mail. Add extensions from the
@@ -199,10 +207,43 @@
           </div>
         </section>
 
+        <section class="stack" aria-labelledby="plugins-title">
+          <div class="section-head">
+            <span class="eyebrow">Plugins and connectors</span>
+            <h2 id="plugins-title">Mail grows with the plugins you turn on.</h2>
+            <p>
+              Plugins add cards, actions and agent tools to your mail, and connect the accounts they
+              need. Turn each one on or off in Settings; your choice follows you to every device.
+            </p>
+          </div>
+          <div class="layers">
+            <div class="layer">
+              <h3>Plugins <small>In Mail</small></h3>
+              <ul>
+                <li>Sign-in codes</li>
+                <li>Calendar invitations</li>
+                <li>Translation</li>
+                <li>Todoist</li>
+                <li>Otter Drive</li>
+              </ul>
+            </div>
+            <div class="layer">
+              <h3>Connectors <small>Your mailboxes</small></h3>
+              <ul>
+                <li>Gmail</li>
+                <li>Outlook</li>
+                <li>IMAP</li>
+                <li>Todoist</li>
+                <li>Otter Drive</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section class="privacy">
           <h2>Your mail stays yours</h2>
           <p>
-            Otter Mail reads your mail from Gmail, Outlook or your IMAP server directly on your
+            Otter reads your mail from Gmail, Outlook or your IMAP server directly on your
             device and keeps its mailbox cache there. An Otter account, optional on the Mac, syncs
             your mailboxes, preferences and agent chats and wakes your devices when mail arrives. If
             you use the OpenRouter agent, its chat history and mail returned by tools are stored on

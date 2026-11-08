@@ -1,4 +1,4 @@
-// The landing page's hero: Otter Mail as a small office, in glass. Mail comes in
+// Mail's hero: Mail as a small office, in glass. Mail comes in
 // through the wall from Gmail and IMAP, and the receptionist sorts it: junk into the
 // shredder, labeled mail into the pigeonholes, the rest onto the counter for you. A
 // courier walks it to your desk, where you read it (J) and file it (E) or pass it
@@ -485,7 +485,7 @@
       },
       FLOOR + 4,
     );
-    letters([-17.6, WALL_Y + 0.01, 3.75], "OTTER MAIL", 0.5, INK, 0.7, { depth: FLOOR + 4 });
+    letters([-17.6, WALL_Y + 0.01, 3.75], "OTTER", 0.5, INK, 0.7, { depth: FLOOR + 4 });
 
     // A clock over the coffee.
     plane(

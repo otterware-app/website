@@ -1,6 +1,6 @@
-// Otter Mail's changelog page (/mail/changelog/: every released note, the versions down the
-// side). The notes are written in the otter-mail repository and copied into changelog/mail/
-// by the Mail changelog workflow, with `released`, the version Mail last released: notes
+// Otter's changelog page (/mail/changelog/: every released note, the versions down the
+// side). The notes are written in the otter repository and copied into changelog/mail/
+// by the Mail changelog workflow, with `released`, the version Otter last released: notes
 // written ahead of a release wait for it. Run by build.ts and dev.ts.
 
 import * as NodeFS from "node:fs";
@@ -125,14 +125,14 @@ ${markdown.parse(e.body.replace(/^## /gm, "### "))}
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Changelog · Otter Mail</title>
-    <meta name="description" content="What's new in Otter Mail, release by release." />
+    <title>Changelog · Otter</title>
+    <meta name="description" content="What's new in Otter, release by release." />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/style.css" />
     <script src="/site.js" defer></script>
   </head>
-  <body class="landing" data-app="mail">
+  <body class="landing" data-app="otter">
     <header class="top">
       <div class="wrap">
         <nav class="nav"></nav>
@@ -143,7 +143,7 @@ ${markdown.parse(e.body.replace(/^## /gm, "### "))}
       <div class="wrap">
         <header>
           <h1>Changelog</h1>
-          <p>What's new in Otter Mail, on the Mac and the web.</p>
+          <p>What's new in Otter, on the Mac, Linux and the web.</p>
         </header>
         <div class="changelog-layout">
           <nav class="toc" aria-label="Versions">

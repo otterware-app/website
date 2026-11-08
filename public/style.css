@@ -791,3 +791,469 @@ html {
     transform: translateY(0.75rem);
   }
 }
+
+/* Otter: the wordmark beside the mark, in the nav and the footer. */
+.logo {
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.product-bar .product .kicker {
+  color: var(--faint);
+  font-weight: 500;
+}
+
+/* Otter's page: a dark band for the agents, ivory for the modules (the icons' own colors). */
+.landing {
+  --ivory: #f8f5ec;
+  --charcoal: #2c2f31;
+  --ink: #18191a;
+}
+.eyebrow {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--faint);
+  font: 500 0.75rem var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.section-head {
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+.section-head h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.4vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.section-head p {
+  margin: 0.9rem 0 0;
+  color: var(--dim);
+  font-size: 1.05rem;
+  text-wrap: balance;
+}
+.hero-mark {
+  display: block;
+  margin: 0 auto 1.75rem;
+  border-radius: 22.5%;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 1rem 2.5rem -1rem rgba(18, 18, 17, 0.35);
+}
+
+/* How Otter is put together: your agents over the modules, plugins in them, connectors under. */
+.stack {
+  margin: 8rem 0 0;
+}
+.layers {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+.layer {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 1.5rem;
+  border-radius: 16px;
+  background: var(--bg-raise);
+  box-shadow: inset 0 0 0 1px var(--line-soft);
+}
+.layer h3 {
+  margin: 0;
+  color: var(--fg);
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+.layer h3 small {
+  display: block;
+  color: var(--faint);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.layer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.layer li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bg);
+  box-shadow: 0 0 0 1px var(--line);
+  color: var(--fg);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.layer li img {
+  border-radius: 22.5%;
+}
+.layer li.soon {
+  color: var(--faint);
+  box-shadow: 0 0 0 1px var(--line-soft);
+}
+.layer.agents-layer {
+  background: var(--ink);
+  box-shadow: none;
+}
+.layer.agents-layer h3 {
+  color: var(--ivory);
+}
+.layer.agents-layer h3 small {
+  color: rgba(248, 245, 236, 0.5);
+}
+.layer.agents-layer li {
+  background: rgba(248, 245, 236, 0.08);
+  box-shadow: 0 0 0 1px rgba(248, 245, 236, 0.14);
+  color: var(--ivory);
+}
+
+/* The modules: a card each, with the module itself. */
+.modules {
+  margin: 8rem 0 0;
+}
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.module-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 20px;
+  background: var(--bg-raise);
+  text-decoration: none;
+  transition:
+    background 0.15s,
+    transform 0.2s;
+}
+.module-card:hover {
+  background: #efefed;
+  transform: translateY(-2px);
+}
+.module-card .shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.module-card .text {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 0.5rem 0.5rem;
+}
+.module-card .text img {
+  flex: none;
+  border-radius: 22.5%;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.module-card h3 {
+  margin: 0;
+  color: var(--fg);
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+.module-card p {
+  margin: 0.25rem 0 0;
+  color: var(--dim);
+  font-size: 0.95rem;
+}
+.module-card .arrow {
+  margin-left: auto;
+  color: var(--faint);
+  transition:
+    color 0.15s,
+    transform 0.15s;
+}
+.module-card:hover .arrow {
+  color: var(--fg);
+  transform: translateX(2px);
+}
+.module-more {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2.5rem;
+  margin-top: 2rem;
+  color: var(--dim);
+  font-size: 0.9rem;
+}
+.module-more span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.module-more img {
+  border-radius: 22.5%;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+/* The agents band: dark, full width, the app's chat beside what it does. */
+.band {
+  margin: 8rem 0 0;
+  padding: 6rem 0;
+  background: var(--ink);
+  color: rgba(248, 245, 236, 0.72);
+}
+.band .eyebrow {
+  color: rgba(248, 245, 236, 0.45);
+}
+.band .section-head h2,
+.band h3 {
+  color: var(--ivory);
+}
+.band .section-head p {
+  color: rgba(248, 245, 236, 0.65);
+}
+.band .hero-shot img,
+.band .tour img {
+  box-shadow:
+    0 0 0 1px rgba(248, 245, 236, 0.12),
+    0 2rem 4rem -1.5rem rgba(0, 0, 0, 0.6);
+}
+.band figcaption {
+  color: rgba(248, 245, 236, 0.55) !important;
+}
+.band a {
+  color: var(--ivory);
+}
+.agent-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin: 4rem 0 0;
+}
+.agent-points h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.agent-points p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.providers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.providers li {
+  margin: 0;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(248, 245, 236, 0.16);
+  color: var(--ivory);
+  font: 0.75rem var(--mono);
+  letter-spacing: 0.02em;
+}
+
+/* Scheduled: what an agent ran on its own, as it lands in Otter. */
+.scheduled {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: 4rem;
+  margin: 6rem 0 0;
+}
+.scheduled h2 {
+  margin: 0 0 0.75rem;
+  color: var(--ivory);
+  font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.scheduled p {
+  margin: 0 0 1rem;
+}
+.soon-pill {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(248, 245, 236, 0.1);
+  color: var(--ivory);
+  font: 500 0.7rem var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.feed {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.feed li {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  background: rgba(248, 245, 236, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(248, 245, 236, 0.1);
+}
+.feed .head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(248, 245, 236, 0.5);
+  font: 0.75rem var(--mono);
+}
+.feed .head img {
+  border-radius: 22.5%;
+}
+.feed .head time {
+  margin-left: auto;
+}
+.feed strong {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--ivory);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.feed span.body {
+  display: block;
+  margin-top: 0.2rem;
+  color: rgba(248, 245, 236, 0.68);
+  font-size: 0.9rem;
+}
+
+/* Everywhere: the platforms in a row. */
+.everywhere {
+  margin: 8rem 0 0;
+}
+.platforms {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.platform {
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: var(--bg-raise);
+}
+.platform h3 {
+  margin: 0 0 0.35rem;
+  color: var(--fg);
+  font-size: 1rem;
+  font-weight: 650;
+}
+.platform p {
+  margin: 0 0 0.75rem;
+  color: var(--dim);
+  font-size: 0.9rem;
+}
+
+/* The footer: Otter, then a column of links per kind. */
+.landing footer {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 7rem;
+  padding: 2.5rem 0 3.5rem;
+  border-top: 1px solid var(--line-soft);
+  text-align: left;
+}
+.landing footer .footer-brand a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--fg);
+  font-weight: 650;
+}
+.landing footer .footer-brand p {
+  margin: 0.5rem 0 0;
+  color: var(--faint);
+  font-size: 0.85rem;
+}
+.landing footer nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.landing footer h2 {
+  margin: 0 0 0.35rem;
+  color: var(--fg);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.landing footer nav a {
+  margin: 0;
+  color: var(--dim);
+  font-size: 0.85rem;
+}
+
+/* A module's page: what it is part of, above its headline. */
+.part-of {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.part-of img {
+  border-radius: 22.5%;
+}
+
+@media (max-width: 60rem) {
+  .module-grid,
+  .agent-points,
+  .scheduled {
+    grid-template-columns: 1fr;
+  }
+  .platforms {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .layer {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .landing footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nav .logo span {
+    display: none;
+  }
+}
+@media (max-width: 40rem) {
+  .platforms,
+  .landing footer {
+    grid-template-columns: 1fr;
+  }
+  .band {
+    padding: 4rem 0;
+  }
+  .nav .apps {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav .links > a:not(.account) {
+    display: none;
+  }
+}
