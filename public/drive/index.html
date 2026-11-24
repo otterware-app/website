@@ -68,10 +68,10 @@
             </div>
         </section>
 
-        <section class="cli">
+        <section class="cli" id="agents">
           <div class="feature-text">
             <h2>From your terminal, and your agents.</h2>
-            <p>Publish a report, a spreadsheet or a whole site, and push its next run as a new version. Give your agent the CLI and its key, and what it makes lands where your team can read it.</p>
+            <p>Publish a report, a spreadsheet or a whole site, and push its next run as a new version. Give your agent the CLI and its key, and what it makes lands where your team can read it. Share it from Drive.</p>
           </div>
           <pre><code><span class="c"># once</span>
 npm install --global otterdrive
@@ -80,10 +80,7 @@ otterdrive auth login
 <span class="c"># publish, then every run after is a new version</span>
 otterdrive artifacts create ./report.xlsx --slug q3-review --title "Q3 revenue review"
 otterdrive artifacts push q3-review ./report.xlsx --label "November close"
-otterdrive artifacts versions q3-review
-
-<span class="c"># share it</span>
-otterdrive artifacts share q3-review maya@northwind.example --role editor</code></pre>
+otterdrive artifacts versions q3-review</code></pre>
         </section>
 
         <footer></footer>
