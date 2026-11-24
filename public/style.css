@@ -1,10 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&display=swap");
+
+/* Otter's site: warm paper and ink, oil-painted still lifes for mood, Otter's own screens shown
+   plainly (every image is made in design/marketing.pen). */
 :root {
   color-scheme: light;
-  --bg: #ffffff;
-  --fg: #121211;
-  --text: #2c2c2a;
-  --muted: rgba(18, 18, 17, 0.55);
-  --line: rgba(18, 18, 17, 0.12);
+  --bg: #f4f2ee;
+  --surface: #ffffff;
+  --fg: #171614;
+  --text: #2e2c29;
+  --dim: rgba(23, 22, 20, 0.62);
+  --faint: rgba(23, 22, 20, 0.42);
+  --line: rgba(23, 22, 20, 0.12);
+  --line-soft: rgba(23, 22, 20, 0.07);
+  --sans: Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 * {
   box-sizing: border-box;
@@ -13,19 +22,20 @@ html,
 body {
   margin: 0;
 }
+html {
+  scroll-padding-top: 5.5rem;
+}
 body {
   min-height: 100vh;
+  overflow-x: clip;
   background: var(--bg);
   color: var(--text);
-  font:
-    16px/1.65 Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font: 16px/1.6 var(--sans);
   -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: rgba(23, 22, 20, 0.85);
+  color: var(--bg);
 }
 a {
   color: var(--fg);
@@ -37,62 +47,25 @@ a:hover {
 }
 h2 {
   color: var(--fg);
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin: 2.25rem 0 0.5rem;
+  font-weight: 500;
 }
-ul {
-  padding-left: 1.2rem;
-}
-li {
-  margin: 0.3rem 0;
-}
-footer {
-  border-top: 1px solid var(--line);
-  margin-top: 3.5rem;
-  padding-top: 1.25rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-footer a {
-  margin-right: 1.25rem;
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* The landing page: the mail client's own neutral look, framed like a product sheet. */
-.landing {
-  --bg-raise: #f6f6f5;
-  --dim: rgba(18, 18, 17, 0.62);
-  --faint: rgba(18, 18, 17, 0.45);
-  --line-soft: rgba(18, 18, 17, 0.08);
-  --sans:
-    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter Variable", Inter, "Segoe UI",
-    system-ui, sans-serif;
-  --mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace;
-  background: var(--bg);
-  font-family: var(--sans);
-  overflow-x: clip;
-}
-.landing ::selection {
-  background: rgba(18, 18, 17, 0.85);
-  color: var(--bg);
+img {
+  max-width: 100%;
 }
 .wrap {
-  max-width: 71rem;
+  max-width: 76rem;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* The header stays at the top; once the page scrolls under it, a hairline shows (after
-   Vercel's). Browsers without scroll-driven animations go without the line. */
+/* The nav stays at the top; once the page scrolls under it, a hairline shows. */
 .top {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 @supports (animation-timeline: scroll()) {
   .top {
@@ -106,175 +79,68 @@ footer a:hover {
     box-shadow: 0 1px 0 var(--line-soft);
   }
 }
-html {
-  scroll-padding-top: 5.5rem;
-}
 .nav {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  height: 4rem;
+  height: 3.75rem;
   font-size: 0.8125rem;
 }
 .logo {
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+.nav .apps {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 auto;
 }
 .nav .links {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-left: auto;
-}
-.nav .links a {
-  color: var(--dim);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-.nav .links a:hover {
-  color: var(--fg);
-}
-/* The apps, after the logo; those still to come, unlinked. */
-.nav .apps {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-left: 1rem;
 }
 .nav .apps a,
-.nav .apps .soon {
+.nav .links a {
   color: var(--dim);
   text-decoration: none;
   white-space: nowrap;
   transition: color 0.15s;
 }
 .nav .apps a:hover,
-.nav .apps a[aria-current] {
+.nav .apps a[aria-current],
+.nav .links a:hover {
   color: var(--fg);
-}
-.nav .apps .soon {
-  color: var(--faint);
-  cursor: default;
-}
-.soon small,
-.soon-badge {
-  margin-left: 0.2rem;
-  padding: 0.05rem 0.4rem;
-  border-radius: 999px;
-  box-shadow: 0 0 0 1px var(--line);
-  font-size: 0.6875rem;
-  font-weight: 500;
 }
 .nav .links .account {
   display: inline-flex;
   align-items: center;
-  height: 1.75rem;
+  height: 1.9rem;
   padding: 0 0.8rem;
-  border-radius: 999px;
-  box-shadow: 0 0 0 1px var(--line);
-  color: var(--fg);
+  border-radius: 8px;
+  background: var(--fg);
+  color: var(--bg);
   font-weight: 500;
-  white-space: nowrap;
-  transition: box-shadow 0.15s;
+  transition: background 0.15s;
 }
 .nav .links .account:hover {
-  box-shadow: 0 0 0 1px rgba(18, 18, 17, 0.3);
+  background: #3b3935;
+  color: var(--bg);
 }
 
-/* An app's pages: its name, its pages, and its main action, under the nav. */
-.product-bar {
-  border-top: 1px solid var(--line-soft);
-}
-.product-bar .wrap {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  height: 3rem;
-  font-size: 0.8125rem;
-}
-.product-bar .product {
-  color: var(--fg);
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.product-bar .links {
-  display: flex;
-  gap: 1.25rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.product-bar .links a {
-  color: var(--dim);
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.15s;
-}
-.product-bar .links a:hover,
-.product-bar .links a[aria-current] {
-  color: var(--fg);
-}
-.product-bar .btn {
-  margin-left: auto;
-}
-
-.hero {
-  padding: 5rem 0 0;
-  text-align: center;
-}
-.hero-copy {
-  max-width: 41rem;
-  margin: 0 auto;
-}
-.chip {
-  display: inline-block;
-  margin-bottom: 1.5rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 0 0 1px rgba(18, 18, 17, 0.1);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  color: var(--fg);
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: box-shadow 0.15s;
-}
-.chip:hover {
-  box-shadow: 0 0 0 1px rgba(18, 18, 17, 0.22);
-}
-.landing h1 {
-  margin: 0;
-  color: var(--dim);
-  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
-  font-weight: 500;
-  line-height: 1.45;
-  letter-spacing: -0.025em;
-  text-wrap: balance;
-}
-.landing h1 b {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: var(--fg);
-  font-size: clamp(2.4rem, 5.6vw, 3.75rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-}
-.cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem 1.5rem;
-  margin: 1.9rem 0 0;
-}
 .btn {
   display: inline-flex;
   align-items: center;
-  height: 2.25rem;
-  padding: 0 1rem;
-  border-radius: 9px;
+  height: 2.5rem;
+  padding: 0 1.1rem;
+  border-radius: 10px;
   background: var(--fg);
   color: var(--bg);
   font-size: 0.875rem;
@@ -283,23 +149,7 @@ html {
   transition: background 0.15s;
 }
 .btn:hover {
-  background: #3a3a38;
-}
-.btn.secondary {
-  background: var(--bg);
-  box-shadow: 0 0 0 1px var(--line);
-  color: var(--fg);
-  transition: box-shadow 0.15s;
-}
-.btn.secondary:hover {
-  box-shadow: 0 0 0 1px rgba(18, 18, 17, 0.3);
-}
-.btn.small {
-  height: 1.75rem;
-  padding: 0 0.75rem;
-  border-radius: 7px;
-  font-size: 0.8125rem;
-  white-space: nowrap;
+  background: #3b3935;
 }
 .text-link {
   color: var(--dim);
@@ -311,285 +161,315 @@ html {
 .text-link:hover {
   color: var(--fg);
 }
-.app-icon {
-  display: block;
-  margin: 0 auto 1.25rem;
-}
-/* The icons are ivory tiles: a hairline keeps them off the white and the cards. */
-.app-icon,
-.app-card-text img,
-.app-row img {
-  border-radius: 22.5%;
-  box-shadow: 0 0 0 1px var(--line);
-}
-.works-with {
+.cta {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.4rem 1.75rem;
-  margin: 3rem 0 0;
-  color: var(--faint);
-  font: 0.75rem var(--mono);
-  letter-spacing: 0.02em;
-}
-
-/* The office: Otter Mail as a small office in glass (office.js), fading at its edges. */
-.office {
-  position: relative;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
   margin: 1.5rem 0 0;
 }
-.office canvas {
-  display: block;
-  width: 100%;
-  height: clamp(22rem, 46vw, 44rem);
-  -webkit-mask-image:
-    linear-gradient(to bottom, transparent, #000 22%, #000 88%, transparent),
-    linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
-  mask-image:
-    linear-gradient(to bottom, transparent, #000 22%, #000 88%, transparent),
-    linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
-}
-.office button {
-  position: absolute;
-  right: max(1.5rem, calc(50vw - 37.5rem));
-  bottom: 0.5rem;
-  padding: 0.3rem 0.75rem;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 0 1px var(--line);
-  color: var(--dim);
-  font: 500 0.75rem var(--sans);
-  cursor: pointer;
-  transition: color 0.15s;
-}
-.office button:hover {
-  color: var(--fg);
-}
 
-/* An app's page: the app itself, under its headline. */
-.hero-shot {
-  margin: 4rem 0 0;
-}
-.hero-shot img,
-.app-card .shot {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow:
-    0 0 0 1px var(--line),
-    0 1.25rem 3rem -1.5rem rgba(18, 18, 17, 0.28);
-}
-.hero-shot figcaption {
-  margin-top: 0.85rem;
-  color: var(--dim);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-/* The suite: an app per card, and those to come. */
-.suite {
-  margin: 6rem 0 0;
-}
-.suite > h2 {
-  margin: 0 0 2rem;
-  font-size: 1.4rem;
-  letter-spacing: -0.02em;
-  text-align: center;
-}
-.app-grid {
+/* Otter's page and the modules': a headline beside a sentence, then the stage. */
+.intro {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-.app-card {
-  display: block;
-  padding: 1rem;
-  border-radius: 18px;
-  background: var(--bg-raise);
-  text-decoration: none;
-  transition: background 0.15s;
-}
-.app-card:hover {
-  background: #efefed;
-}
-.app-card .shot {
-  border-radius: 9px;
-  box-shadow: 0 0 0 1px var(--line);
-}
-.app-card-text {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem 0.5rem 0.5rem;
-}
-.app-card-text img,
-.app-row img {
-  flex: none;
-}
-.app-card h3,
-.app-row h3 {
-  margin: 0;
-  color: var(--fg);
-  font-size: 1rem;
-  font-weight: 600;
-}
-.app-card p,
-.app-row p {
-  margin: 0.2rem 0 0;
-  color: var(--dim);
-  font-size: 0.95rem;
-}
-.app-card .arrow {
-  margin-left: auto;
-  color: var(--faint);
-  transition:
-    color 0.15s,
-    transform 0.15s;
-}
-.app-card:hover .arrow {
-  color: var(--fg);
-  transform: translateX(2px);
-}
-.coming {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-.app-row {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  padding: 0.5rem 1.5rem;
-}
-.app-row img {
-  opacity: 0.8;
-}
-.app-row p {
-  font-size: 0.875rem;
-}
-.soon-badge {
-  margin-left: auto;
-  color: var(--faint);
-}
-
-.landing .features {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem 2.5rem;
-  margin: 7rem 0 0;
-}
-.features h2,
-.privacy h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
-}
-.features p {
-  margin: 0;
-  color: var(--dim);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-/* A look inside: the app itself, on the demo mailbox. */
-.tour {
-  margin: 7rem 0 0;
-}
-.tour h2 {
-  margin: 0 0 2rem;
-  font-size: 1.4rem;
-  letter-spacing: -0.02em;
-  text-align: center;
-}
-.tour figure {
-  margin: 0;
-}
-.tour img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow:
-    0 0 0 1px var(--line),
-    0 1.25rem 3rem -1.5rem rgba(18, 18, 17, 0.28);
-}
-.tour figcaption {
-  margin-top: 0.85rem;
-  color: var(--dim);
-  font-size: 0.9rem;
-  text-align: center;
-}
-.tour-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  margin-top: 3rem;
-}
-.tour-grid img {
-  border-radius: 9px;
-}
-
-.privacy {
-  max-width: 40rem;
-  margin: 6rem auto 0;
-  padding-top: 3rem;
-  border-top: 1px solid var(--line);
-  text-align: center;
-}
-.privacy h2 {
-  margin-bottom: 0.75rem;
-  font-size: 1.4rem;
-  letter-spacing: -0.02em;
-}
-.privacy p {
-  margin: 0;
-  color: var(--dim);
-}
-.privacy .cta {
-  margin-top: 1.25rem;
-}
-
-/* The CLI and agents, on Drive's page: what it does, beside the commands. */
-.agents {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  align-items: center;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  align-items: end;
   gap: 3rem;
-  margin: 7rem 0 0;
+  padding: 4.5rem 0 3rem;
 }
-.agents h2 {
-  margin: 0 0 0.75rem;
-  font-size: 1.4rem;
-  letter-spacing: -0.02em;
-}
-.agents p {
+.intro h1 {
   margin: 0;
+  color: var(--fg);
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+.intro-side p {
+  margin: 0;
+  color: var(--dim);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.module-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1.5rem;
+}
+.stage {
+  margin: 0;
+}
+.stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home section {
+  margin-top: 9rem;
+}
+.home section > h2,
+.feature-text h2,
+.agents-copy h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.section-lead {
+  max-width: 38rem;
+  margin: 0 0 2.5rem;
   color: var(--dim);
 }
 
-/* Commands to copy, on an app's page. */
-.commands {
+/* The modules, each a painting. */
+.paintings {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.painting {
+  color: inherit;
+  text-decoration: none;
+}
+.painting img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: opacity 0.2s;
+}
+.painting:hover img {
+  opacity: 0.88;
+}
+.painting h3 {
+  margin: 1rem 0 0.25rem;
+  color: var(--fg);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.painting h3 span {
+  color: var(--faint);
+}
+.painting p {
   margin: 0;
-  padding: 1rem 1.25rem;
-  overflow-x: auto;
-  border-radius: 12px;
-  background: var(--bg-raise);
+  color: var(--dim);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* A screen with what it's for: the text above, the screen full width under it. */
+.screen {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.feature-text {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 0.5rem 3rem;
+  margin-bottom: 2rem;
+}
+.feature-text h2 {
+  margin: 0;
+}
+.feature-text p {
+  margin: 0;
+  color: var(--dim);
+}
+.feature-text .text-link {
+  grid-column: 2;
+}
+
+.agents-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: 4rem;
+}
+.agents-copy p {
+  color: var(--dim);
+  text-wrap: pretty;
+}
+.screen.chat {
+  max-width: 30rem;
+  justify-self: center;
+}
+.providers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+.providers li {
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: var(--surface);
   box-shadow: 0 0 0 1px var(--line-soft);
   color: var(--fg);
-  font: 0.8125rem/1.75 var(--mono);
-}
-.commands .comment {
-  color: var(--faint);
+  font: 0.75rem var(--mono);
 }
 
-.landing footer {
-  margin-top: 5rem;
-  padding: 0 0 3rem;
-  border-top: 0;
+.ask-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 2rem;
+}
+.ask-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* What's in a module, three to a row. */
+.points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem 2rem;
+  margin-top: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line-soft);
+}
+.points h3 {
+  margin: 0 0 0.35rem;
+  color: var(--fg);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.points p {
+  margin: 0;
+  color: var(--dim);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.closeups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 3rem;
+  margin-top: 6rem;
+}
+.closeups figure {
+  margin: 0;
+}
+.closeups figcaption {
+  margin-top: 0.75rem;
+  color: var(--dim);
+  font-size: 0.875rem;
   text-align: center;
+}
+
+.platforms {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line-soft);
+}
+.platforms h3 {
+  margin: 0 0 0.4rem;
+  color: var(--fg);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.platforms p {
+  margin: 0 0 0.75rem;
+  color: var(--dim);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.privacy-line {
+  max-width: 46rem;
+  margin: 3.5rem 0 0;
+  color: var(--faint);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.privacy-line a {
+  color: var(--dim);
+}
+.horizon {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 8rem;
+  border-radius: 6px;
+}
+
+/* A terminal, for the CLI. */
+.cli {
+  margin-top: 7rem;
+}
+.cli pre {
+  margin: 0;
+  padding: 1.75rem 2rem;
+  overflow-x: auto;
+  border-radius: 12px;
+  background: #1c1b19;
+  color: #e9e6df;
+  font: 0.875rem/1.75 var(--mono);
+}
+.cli .c {
+  color: #8d877c;
+}
+
+/* The footer: a line to end on, then the links. */
+footer {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 3rem 0 2.5rem;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.85rem;
+}
+.module footer,
+.page footer {
+  margin-top: 8rem;
+}
+.footer-line {
+  margin: 0;
+  color: var(--fg);
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+footer nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+footer h2 {
+  margin: 0 0 0.5rem;
+  color: var(--faint);
+  font: 500 0.7rem var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+footer nav a {
+  color: var(--dim);
+  text-decoration: none;
+}
+footer nav a:hover {
+  color: var(--fg);
+}
+.footer-legal {
+  grid-column: 1 / -1;
+  margin: 2rem 0 0;
+  color: var(--faint);
+  font: 0.7rem var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* The pages under the nav (the changelog, privacy, terms): a title, then the page. */
@@ -722,17 +602,34 @@ html {
 }
 
 @media (max-width: 60rem) {
-  .landing .features {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .tour-grid,
-  .app-grid,
-  .coming,
-  .agents {
-    grid-template-columns: 1fr;
-  }
-  .nav .apps .soon {
+  .nav .apps,
+  .nav .links > a:not(.account) {
     display: none;
+  }
+  .nav .links {
+    margin-left: auto;
+  }
+  .intro,
+  .agents-split,
+  .feature-text {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .intro {
+    gap: 1.5rem;
+  }
+  .feature-text .text-link {
+    grid-column: 1;
+  }
+  .paintings,
+  .platforms,
+  .points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  footer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footer-line {
+    grid-column: 1 / -1;
   }
   .changelog-layout {
     grid-template-columns: minmax(0, 1fr);
@@ -743,517 +640,19 @@ html {
 }
 @media (max-width: 40rem) {
   .wrap {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
   }
-  .nav .apps {
-    gap: 1rem;
-    margin-left: 0;
+  .home section {
+    margin-top: 6rem;
   }
-  .product-bar .btn {
-    display: none;
-  }
-  .hero {
-    padding-top: 3rem;
-  }
-  .works-with {
-    gap: 0.4rem 1.1rem;
-  }
-  .landing .features {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .hero-copy > *,
-  .office canvas {
-    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
-  }
-  .hero-copy > :nth-child(2) {
-    animation-delay: 0.05s;
-  }
-  .hero-copy > :nth-child(3) {
-    animation-delay: 0.1s;
-  }
-  .hero-copy > :nth-child(4) {
-    animation-delay: 0.15s;
-  }
-  .hero-copy > :nth-child(5) {
-    animation-delay: 0.2s;
-  }
-  .office canvas {
-    animation-delay: 0.25s;
-  }
-}
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(0.75rem);
-  }
-}
-
-/* Otter: the wordmark beside the mark, in the nav and the footer. */
-.logo {
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--fg);
-  font-size: 0.95rem;
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  text-decoration: none;
-}
-.product-bar .product .kicker {
-  color: var(--faint);
-  font-weight: 500;
-}
-
-/* Otter's page: a dark band for the agents, ivory for the modules (the icons' own colors). */
-.landing {
-  --ivory: #f8f5ec;
-  --charcoal: #2c2f31;
-  --ink: #18191a;
-}
-.eyebrow {
-  display: block;
-  margin-bottom: 0.75rem;
-  color: var(--faint);
-  font: 500 0.75rem var(--mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.section-head {
-  max-width: 40rem;
-  margin: 0 auto 3rem;
-  text-align: center;
-}
-.section-head h2 {
-  margin: 0;
-  font-size: clamp(1.6rem, 3.4vw, 2.25rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  text-wrap: balance;
-}
-.section-head p {
-  margin: 0.9rem 0 0;
-  color: var(--dim);
-  font-size: 1.05rem;
-  text-wrap: balance;
-}
-.hero-mark {
-  display: block;
-  margin: 0 auto 1.75rem;
-  border-radius: 22.5%;
-  box-shadow:
-    0 0 0 1px var(--line),
-    0 1rem 2.5rem -1rem rgba(18, 18, 17, 0.35);
-}
-
-/* How Otter is put together: your agents over the modules, plugins in them, connectors under. */
-.stack {
-  margin: 8rem 0 0;
-}
-.layers {
-  display: grid;
-  gap: 0.75rem;
-  max-width: 56rem;
-  margin: 0 auto;
-}
-.layer {
-  display: grid;
-  grid-template-columns: 9.5rem minmax(0, 1fr);
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.1rem 1.5rem;
-  border-radius: 16px;
-  background: var(--bg-raise);
-  box-shadow: inset 0 0 0 1px var(--line-soft);
-}
-.layer h3 {
-  margin: 0;
-  color: var(--fg);
-  font-size: 0.95rem;
-  font-weight: 650;
-}
-.layer h3 small {
-  display: block;
-  color: var(--faint);
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-.layer ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.layer li {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin: 0;
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  background: var(--bg);
-  box-shadow: 0 0 0 1px var(--line);
-  color: var(--fg);
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-.layer li img {
-  border-radius: 22.5%;
-}
-.layer li.soon {
-  color: var(--faint);
-  box-shadow: 0 0 0 1px var(--line-soft);
-}
-.layer.agents-layer {
-  background: var(--ink);
-  box-shadow: none;
-}
-.layer.agents-layer h3 {
-  color: var(--ivory);
-}
-.layer.agents-layer h3 small {
-  color: rgba(248, 245, 236, 0.5);
-}
-.layer.agents-layer li {
-  background: rgba(248, 245, 236, 0.08);
-  box-shadow: 0 0 0 1px rgba(248, 245, 236, 0.14);
-  color: var(--ivory);
-}
-
-/* The modules: a card each, with the module itself. */
-.modules {
-  margin: 8rem 0 0;
-}
-.module-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-.module-card {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  border-radius: 20px;
-  background: var(--bg-raise);
-  text-decoration: none;
-  transition:
-    background 0.15s,
-    transform 0.2s;
-}
-.module-card:hover {
-  background: #efefed;
-  transform: translateY(-2px);
-}
-.module-card .shot {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: top left;
-  border-radius: 10px;
-  box-shadow: 0 0 0 1px var(--line);
-}
-.module-card .text {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem 0.5rem 0.5rem;
-}
-.module-card .text img {
-  flex: none;
-  border-radius: 22.5%;
-  box-shadow: 0 0 0 1px var(--line);
-}
-.module-card h3 {
-  margin: 0;
-  color: var(--fg);
-  font-size: 1.05rem;
-  font-weight: 650;
-}
-.module-card p {
-  margin: 0.25rem 0 0;
-  color: var(--dim);
-  font-size: 0.95rem;
-}
-.module-card .arrow {
-  margin-left: auto;
-  color: var(--faint);
-  transition:
-    color 0.15s,
-    transform 0.15s;
-}
-.module-card:hover .arrow {
-  color: var(--fg);
-  transform: translateX(2px);
-}
-.module-more {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem 2.5rem;
-  margin-top: 2rem;
-  color: var(--dim);
-  font-size: 0.9rem;
-}
-.module-more span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.module-more img {
-  border-radius: 22.5%;
-  box-shadow: 0 0 0 1px var(--line);
-}
-
-/* The agents band: dark, full width, the app's chat beside what it does. */
-.band {
-  margin: 8rem 0 0;
-  padding: 6rem 0;
-  background: var(--ink);
-  color: rgba(248, 245, 236, 0.72);
-}
-.band .eyebrow {
-  color: rgba(248, 245, 236, 0.45);
-}
-.band .section-head h2,
-.band h3 {
-  color: var(--ivory);
-}
-.band .section-head p {
-  color: rgba(248, 245, 236, 0.65);
-}
-.band .hero-shot img,
-.band .tour img {
-  box-shadow:
-    0 0 0 1px rgba(248, 245, 236, 0.12),
-    0 2rem 4rem -1.5rem rgba(0, 0, 0, 0.6);
-}
-.band figcaption {
-  color: rgba(248, 245, 236, 0.55) !important;
-}
-.band a {
-  color: var(--ivory);
-}
-.agent-points {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  margin: 4rem 0 0;
-}
-.agent-points h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1rem;
-  font-weight: 600;
-}
-.agent-points p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-.providers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 2rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-.providers li {
-  margin: 0;
-  padding: 0.35rem 0.8rem;
-  border-radius: 999px;
-  box-shadow: 0 0 0 1px rgba(248, 245, 236, 0.16);
-  color: var(--ivory);
-  font: 0.75rem var(--mono);
-  letter-spacing: 0.02em;
-}
-
-/* Scheduled: what an agent ran on its own, as it lands in Otter. */
-.scheduled {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-  align-items: center;
-  gap: 4rem;
-  margin: 6rem 0 0;
-}
-.scheduled h2 {
-  margin: 0 0 0.75rem;
-  color: var(--ivory);
-  font-size: clamp(1.4rem, 2.6vw, 1.85rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-}
-.scheduled p {
-  margin: 0 0 1rem;
-}
-.soon-pill {
-  display: inline-block;
-  margin-bottom: 1rem;
-  padding: 0.2rem 0.65rem;
-  border-radius: 999px;
-  background: rgba(248, 245, 236, 0.1);
-  color: var(--ivory);
-  font: 500 0.7rem var(--mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.feed {
-  display: grid;
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.feed li {
-  margin: 0;
-  padding: 1rem 1.15rem;
-  border-radius: 14px;
-  background: rgba(248, 245, 236, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(248, 245, 236, 0.1);
-}
-.feed .head {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(248, 245, 236, 0.5);
-  font: 0.75rem var(--mono);
-}
-.feed .head img {
-  border-radius: 22.5%;
-}
-.feed .head time {
-  margin-left: auto;
-}
-.feed strong {
-  display: block;
-  margin-top: 0.45rem;
-  color: var(--ivory);
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-.feed span.body {
-  display: block;
-  margin-top: 0.2rem;
-  color: rgba(248, 245, 236, 0.68);
-  font-size: 0.9rem;
-}
-
-/* Everywhere: the platforms in a row. */
-.everywhere {
-  margin: 8rem 0 0;
-}
-.platforms {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-.platform {
-  padding: 1.5rem;
-  border-radius: 16px;
-  background: var(--bg-raise);
-}
-.platform h3 {
-  margin: 0 0 0.35rem;
-  color: var(--fg);
-  font-size: 1rem;
-  font-weight: 650;
-}
-.platform p {
-  margin: 0 0 0.75rem;
-  color: var(--dim);
-  font-size: 0.9rem;
-}
-
-/* The footer: Otter, then a column of links per kind. */
-.landing footer {
-  display: grid;
-  grid-template-columns: 1.6fr repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 7rem;
-  padding: 2.5rem 0 3.5rem;
-  border-top: 1px solid var(--line-soft);
-  text-align: left;
-}
-.landing footer .footer-brand a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0;
-  color: var(--fg);
-  font-weight: 650;
-}
-.landing footer .footer-brand p {
-  margin: 0.5rem 0 0;
-  color: var(--faint);
-  font-size: 0.85rem;
-}
-.landing footer nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-.landing footer h2 {
-  margin: 0 0 0.35rem;
-  color: var(--fg);
-  font-size: 0.8125rem;
-  font-weight: 600;
-}
-.landing footer nav a {
-  margin: 0;
-  color: var(--dim);
-  font-size: 0.85rem;
-}
-
-/* A module's page: what it is part of, above its headline. */
-.part-of {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.part-of img {
-  border-radius: 22.5%;
-}
-
-@media (max-width: 60rem) {
-  .module-grid,
-  .agent-points,
-  .scheduled {
-    grid-template-columns: 1fr;
-  }
-  .platforms {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .layer {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-  .landing footer {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .nav .logo span {
-    display: none;
-  }
-}
-@media (max-width: 40rem) {
+  .paintings,
   .platforms,
-  .landing footer {
-    grid-template-columns: 1fr;
+  .points,
+  .ask-grid,
+  .closeups {
+    grid-template-columns: minmax(0, 1fr);
   }
-  .band {
-    padding: 4rem 0;
-  }
-  .nav .apps {
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .nav .links > a:not(.account) {
-    display: none;
+  footer {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
