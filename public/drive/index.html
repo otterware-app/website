@@ -3,21 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Otter Drive · Versioned documents for people and agents</title>
-    <meta
-      name="description"
-      content="Otter Drive keeps your reports, notes and sheets with every version, for you, your team and your agents. Publish from the browser, the command line or an agent."
-    />
-    <meta property="og:title" content="Otter Drive" />
-    <meta property="og:description" content="Versioned documents for people and agents." />
-    <meta property="og:image" content="https://otterware.app/drive/og.jpg" />
+    <title>Drive · Otter</title>
+    <meta name="description" content="Otter Drive keeps your reports, notes and sheets with every version, for you, your team and your agents. Publish from the browser, the command line or an agent." />
+    <meta property="og:title" content="Drive · Otter" />
+    <meta property="og:description" content="Every version, kept." />
+    <meta property="og:image" content="https://otterware.app/og.png" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/style.css" />
     <script src="/site.js" defer></script>
   </head>
-  <body class="landing" data-app="drive">
+  <body class="landing module" data-app="drive">
     <header class="top">
       <div class="wrap">
         <nav class="nav"></nav>
@@ -25,198 +22,65 @@
     </header>
 
     <main>
-      <header class="hero">
-        <div class="wrap">
-          <div class="hero-copy">
-            <img class="app-icon" src="/apps/drive.svg" width="72" height="72" alt="" />
-            <a class="chip part-of" href="/"
-              ><img src="/apps/otter.svg" width="16" height="16" alt="" />A module of Otter, and a
-              drive of its own <span aria-hidden="true">&rarr;</span></a
-            >
-            <h1>
-              <b>Every version, kept.</b> A drive for the documents you and your agents make:
-              reports, notes and sheets, each with its history, shared with the people who need
-              them.
-            </h1>
+      <div class="wrap">
+        <header class="intro">
+          <div>
+            <img class="module-icon" src="/img/icons/drive.png" width="40" height="40" alt="" />
+            <h1>Every version,<br />kept.</h1>
+          </div>
+          <div class="intro-side">
+            <p>A drive for the documents you and your agents make, with every version kept. A module in Otter, and its own app at drive.otterware.app.</p>
             <p class="cta">
               <a class="btn" href="https://drive.otterware.app/">Open Otter Drive</a>
-              <a class="text-link" href="#agents"
-                >The CLI and agents <span aria-hidden="true">&rarr;</span></a
-              >
-            </p>
-            <p class="works-with">
-              <span>HTML</span><span>Markdown</span><span>CSV</span><span>Excel</span
-              ><span>Images</span>
+              <a class="text-link" href="https://github.com/otterware-app/otter/releases/latest">Download Otter &rarr;</a>
             </p>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <div class="wrap">
-        <figure class="hero-shot">
-          <img
-            src="/drive/tour/viewer.webp"
-            width="2400"
-            height="1500"
-            alt="Otter Drive with a team's drive open: its folders down the side, its documents in a list, and an HTML report, the Q3 revenue review, open in the viewer with its KPI tiles, a monthly revenue chart, revenue by region and a table of the largest expansions."
-          />
-          <figcaption>
-            Publish an HTML report and it opens right in the drive, charts and all. Its next run
-            is its next version.
-          </figcaption>
+        <figure class="stage">
+          <img src="/img/hero-drive.webp" width="2564" height="2546" alt="Otter Drive in Otter, over an oil painting of folders and papers: the Northwind drive, with the Q3 revenue review open beside a list of its documents." />
         </figure>
 
-        <section class="features" id="features">
-          <div>
-            <h2>Every version, kept</h2>
-            <p>
-              A change is a new version, never an overwrite: with its label, who made it and when.
-              Any one can be made current again.
-            </p>
-          </div>
-          <div>
-            <h2>Made to be read</h2>
-            <p>
-              HTML reports, Markdown, CSV, Excel, PDFs and video each open in a viewer made for
-              them, right in the browser.
-            </p>
-          </div>
-          <div>
-            <h2>Edit in place</h2>
-            <p>Change a document or a spreadsheet in the browser, and save it as a new version.</p>
-          </div>
-          <div>
-            <h2>Your drive, and the team's</h2>
-            <p>
-              A private drive of your own, and shared drives with folders, where each person can
-              view or edit.
-            </p>
-          </div>
-          <div>
-            <h2>Built for agents</h2>
-            <p>
-              Claude Code, Codex and other agents publish through the CLI and its skill, with keys
-              of their own, and their versions say so.
-            </p>
-          </div>
-          <div>
-            <h2>Find anything</h2>
-            <p>
-              ⌘K searches every drive. Drop files or whole folders anywhere in the window
-              to upload them.
-            </p>
-          </div>
-          <div>
-            <h2>Safe to open</h2>
-            <p>
-              Uploaded pages run sandboxed on a separate origin, away from your sign-in, so a report
-              can't act as you.
-            </p>
-          </div>
-          <div>
-            <h2>One Otter account</h2>
-            <p>Sign in with Google, the same account as Otter. Nothing else to set up.</p>
-          </div>
+        <section class="points" aria-label="What's in it">
+            <div>
+              <h3>Versions, never overwrites</h3>
+              <p>Every change is a new version. Make any earlier one current again.</p>
+            </div>
+            <div>
+              <h3>Previews built in</h3>
+              <p>Documents, spreadsheets and pages open right where you are.</p>
+            </div>
+            <div>
+              <h3>Edit in place</h3>
+              <p>Text, Markdown, CSV and workbooks, saved as a new version.</p>
+            </div>
+            <div>
+              <h3>Shared drives</h3>
+              <p>Share with people and roles, or with a link.</p>
+            </div>
+            <div>
+              <h3>From an email to a drive</h3>
+              <p>Save an attachment, or the email itself, to the drive you pick.</p>
+            </div>
+            <div>
+              <h3>Ready for agents</h3>
+              <p>API keys and the CLI, set up from Settings, so agents publish where you can read.</p>
+            </div>
         </section>
 
-        <section class="modules" id="in-otter" aria-labelledby="in-otter-title">
-          <div class="section-head">
-            <span class="eyebrow">In Otter</span>
-            <h2 id="in-otter-title">Your drives, a module beside your mail.</h2>
-            <p>
-              Turn on the Otter Drive plugin and Drive becomes a module in Otter, next to Mail and
-              Calendar: the same drives, versions and sharing, one keystroke from your inbox.
-            </p>
+        <section class="cli" id="agents">
+          <div class="feature-text">
+            <h2>From your terminal, and your agents.</h2>
+            <p>Publish a report, a spreadsheet or a whole site, and push its next run as a new version. Give your agent the CLI and its key, and what it makes lands where your team can read it. Share it from Drive.</p>
           </div>
-        </section>
-        <section class="features" aria-label="Drive in Otter">
-          <div>
-            <h2>Beside your mail</h2>
-            <p>
-              Every drive, its folders and documents in Otter's own sidebar, with previews, edits and
-              versions as on drive.otterware.app.
-            </p>
-          </div>
-          <div>
-            <h2>From an email to a drive</h2>
-            <p>
-              Save an attachment, or the email itself as a page, into the drive you pick, from the
-              message's menu.
-            </p>
-          </div>
-          <div>
-            <h2>Links open in place</h2>
-            <p>
-              A Drive link in an email opens in Drive, and a shared link adds what it shares to
-              Shared with me first.
-            </p>
-          </div>
-          <div>
-            <h2>Ready for your agents</h2>
-            <p>
-              Settings sets up the otterdrive CLI and its API keys, so your agents publish where you
-              can read it.
-            </p>
-          </div>
-        </section>
-
-        <section class="tour" id="tour">
-          <h2>A look inside</h2>
-          <div class="tour-grid">
-            <figure>
-              <img
-                src="/drive/tour/versions.webp"
-                width="1200"
-                height="750"
-                loading="lazy"
-                alt="The report's version menu: v4, Agent: refreshed data, by Claude Code; v3, Added regional breakdown, by Theo Alvarez; v2, Q3 numbers, by Sam Okafor; v1, Initial draft, by Maya Chen."
-              />
-              <figcaption>People and agents, version by version.</figcaption>
-            </figure>
-            <figure>
-              <img
-                src="/drive/tour/sheet.webp"
-                width="1200"
-                height="750"
-                loading="lazy"
-                alt="An Excel workbook, the Q4 pipeline forecast, open in Otter Drive's spreadsheet editor, with Unsaved changes and Save version in its title bar."
-              />
-              <figcaption>Edit a sheet, save a new version.</figcaption>
-            </figure>
-            <figure>
-              <img
-                src="/drive/tour/document.webp"
-                width="1200"
-                height="750"
-                loading="lazy"
-                alt="A Markdown document, Weekly product sync, Oct 1, rendered with its highlights and decisions."
-              />
-              <figcaption>Notes and specs read like documents.</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section class="agents" id="agents">
-          <div>
-            <h2>From your terminal, and your agents</h2>
-            <p>
-              Install the CLI, sign in once in the browser, and publish a folder or a single file.
-              Give your agent the skill and it does the same: a report it builds becomes a document
-              your team can open, and its next run a new version.
-            </p>
-          </div>
-          <pre
-            class="commands"
-          ><span class="comment"># The CLI (Node.js 24)</span>
+          <pre><code><span class="c"># once</span>
 npm install --global otterdrive
 otterdrive auth login
 
-<span class="comment"># Publish a report, then a new version of it</span>
-otterdrive artifacts create ./report --slug q3-report --title "Q3 report"
-otterdrive artifacts push q3-report ./report --label "Fresh numbers"
-
-<span class="comment"># The skill, for Claude Code, Codex and other agents</span>
-npx skills@latest add otterware-app/otter-drive --skill otterdrive</pre>
+<span class="c"># publish, then every run after is a new version</span>
+otterdrive artifacts create ./report.xlsx --slug q3-review --title "Q3 revenue review"
+otterdrive artifacts push q3-review ./report.xlsx --label "November close"
+otterdrive artifacts versions q3-review</code></pre>
         </section>
 
         <footer></footer>

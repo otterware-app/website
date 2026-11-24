@@ -16,7 +16,6 @@ writeChangelog(dist);
 for (const name of NodeFS.readdirSync(dist, { recursive: true, encoding: "utf8" })) {
   if (!name.endsWith(".html")) continue;
   const page = NodePath.join(dist, name);
-  const pathname = `/${name.replace(/index\.html$/, "")}`;
-  NodeFS.writeFileSync(page, withSiteLayout(NodeFS.readFileSync(page, "utf8"), pathname));
+  NodeFS.writeFileSync(page, withSiteLayout(NodeFS.readFileSync(page, "utf8")));
 }
 console.log("Site assembled in dist/.");

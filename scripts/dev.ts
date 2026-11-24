@@ -47,7 +47,7 @@ NodeHttp.createServer((request, response) => {
   const file = find(root, pathname) ?? NodePath.join(pub, "404.html");
   const type = TYPES[NodePath.extname(file)] ?? "application/octet-stream";
   const body = type.startsWith("text/html")
-    ? withSiteLayout(NodeFS.readFileSync(file, "utf8"), pathname)
+    ? withSiteLayout(NodeFS.readFileSync(file, "utf8"))
     : NodeFS.readFileSync(file);
   response
     .writeHead(file.endsWith("404.html") && pathname !== "/404.html" ? 404 : 200, {

@@ -8,7 +8,7 @@ The words, everywhere on the site:
 
 - **Otter**: the app, made by Otterware. Never "Otter Mail", except the iPhone app, which keeps
   that name (Otter Mail for iPhone).
-- **Modules**: the areas of work in Otter: Mail, Calendar, Drive, Tasks, and Code (soon). Not
+- **Modules**: the areas of work in Otter: Mail, Calendar, Drive and Tasks. Not
   "products" or "apps". People will add and remove them.
 - **Plugins**: what adds features, UI and agent tools to a module, and brings its connectors
   (Sign-in codes, Calendar invitations, Translation, Todoist, Otter Drive). Not "extensions".
@@ -23,14 +23,17 @@ The layout:
 - `public/`: the pages and their files. `index.html` is Otter's page; `mail/`, `calendar/`,
   `drive/`, `tasks/` and `agents/` the modules' (`mail/privacy/`, `mail/terms/`: Otter's policy
   and terms, which Google's OAuth consent screen links to, so they keep their URLs; so does the
-  changelog at `mail/changelog/`). `apps/` holds the icons: Otter's (Otterware's mark), each
-  module's, and the agent's (the Pilot), from the Otterware production kit. `style.css` styles
-  every page; `office.js` draws Mail's hero (Mail as a small office); `site.js` renames the
-  nav's account link once this browser is signed in to Otter.
+  changelog at `mail/changelog/`). `img/` holds every image, all made in `design/marketing.pen`
+  (see `design/README.md`): the brushed Otter mark and module icons, the paintings, heroes and screens.
+  `style.css` styles every page; `site.js` renames the nav's account link once this browser is
+  signed in to Otter.
 - Every page has an empty `<nav class="nav"></nav>` and `<footer></footer>`, filled by
   `scripts/layout.ts`, and names what it is about with `<body data-app="mail">` (`otter` for
-  Otter's own pages), which adds the module's bar under the nav and points "Sign in" at Otter.
-  Modules still to come are in the nav, unlinked.
+  Otter's own pages), which marks it in the nav and points "Sign in" at Otter.
+- The look: warm paper, ink, Geist, sober oil-painted still lifes for mood, and Otter's own
+  screens shown plainly and large. Every screen shown is Otter's current UI from the otter repository's
+  `design/otter.pen`, with content written for the site; check a claim against that
+  repository's `docs/features.md` before it goes on a page.
 - `changelog/mail/`: Otter's notes, copied from the otter repository by the changelog workflow
   (hourly). Write notes there, in otter, not here.
 - `scripts/build.ts` assembles `dist/` (wrangler runs it before deploying); `scripts/dev.ts`
