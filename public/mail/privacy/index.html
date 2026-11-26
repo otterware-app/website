@@ -21,7 +21,7 @@
         <article class="doc">
           <header>
             <h1>Privacy Policy</h1>
-            <p>Last updated: November 14, 2026</p>
+            <p>Last updated: November 26, 2026</p>
           </header>
 
           <p>
@@ -247,32 +247,36 @@
           <p>
             When something fails in Otter (a crash, a sign-in or sync that doesn't work), the
             app sends an error report to <a href="https://sentry.io/">Sentry</a>, a service that
-            collects them for us, so we can find and fix the problem. Reports are stored in Sentry's
-            EU region and kept for up to 90 days.
+            collects them for us, so we can find and fix the problem. Otter also sends Sentry timings
+            of what it does (how long a page, a sync or an agent's turn took), so we can make it faster.
+            Reports are stored in Sentry's EU region and kept for up to 90 days.
           </p>
-          <p>
-            A report says what broke and where: the error, where in Otter's code it happened,
-            the app version, the operating system and browser, and the app's own record of the steps
-            just before it (such as "sync started"). It is built to leave you and your mail out:
-          </p>
+          <p>A report says what broke, where, and for whom:</p>
           <ul>
+            <li>
+              The error, where in Otter's code it happened, the app version, the operating system
+              and browser, the page you were on, and the app's record of the steps just before it
+              (such as "sync started", the pages opened and the buttons clicked).
+            </li>
+            <li>
+              Who it happened to: your Otter account's ID, name and email address when you are
+              signed in to one, otherwise a random report ID for that device, and your IP address.
+            </li>
+            <li>
+              It may include the email address of the mailbox the error happened in, and of other
+              addresses or file paths named in an error message.
+            </li>
             <li>
               It never contains the content of your mail or calendar, your contacts, passwords or
               sign-in tokens, and it never includes screenshots or a recording of your screen.
-            </li>
-            <li>
-              Before a report leaves your device, email addresses, tokens, web addresses' query
-              strings and folder names that could identify you are removed from it.
-            </li>
-            <li>
-              It is not linked to your name, email address or IP address. The only identifier is a
-              random report ID for that device, which Otter includes when you send feedback,
-              so we can match your feedback to its errors.
+              Tokens are removed from a report before it leaves your device.
             </li>
           </ul>
           <p>
-            You can turn error reports off on each device in Settings → General → Send error
-            reports. Otter's server also reports its own errors to Sentry, the same way.
+            We use error reports only to find and fix problems in Otter. Sentry processes them on our
+            behalf and doesn't use them for anything else. You can turn error reports off on each
+            device in Settings → General → Send error reports. Otter's server also reports its own
+            errors to Sentry, with the Otter account each failed request came from.
           </p>
 
           <h2>When data leaves your device</h2>
@@ -313,7 +317,11 @@
               and the app version, as any download does.
             </li>
           </ul>
-          <p>Otter shares Google data only for the features and services described in this policy.</p>
+          <p>
+            Otter shares Google data only for the features and services described in this policy.
+            The only Google data an error report can carry is an email address, as described under
+            "Error reports" above, used only to find and fix problems in Otter.
+          </p>
 
           <h2>Google API Services User Data Policy</h2>
           <p>
